@@ -2,9 +2,9 @@
 
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║          STUDENT MANAGEMENT SYSTEM                            ║
+║                   STUDENT MANAGEMENT SYSTEM                   ║
 ║                                                               ║
-║                  Welcome to Viraj Campus                      ║
+║               Welcome to University of Kelaniya               ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -458,9 +458,9 @@ STUDENT LOGIN EXAMPLE
 
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
-║          STUDENT MANAGEMENT SYSTEM                            ║
+║                   STUDENT MANAGEMENT SYSTEM                   ║
 ║                                                               ║
-║                  Welcome to Viraj Campus                      ║
+║               Welcome to University of Kelaniya               ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 

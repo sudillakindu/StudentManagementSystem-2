@@ -86,9 +86,9 @@ public class Main {
     public static void showWelcomeBanner() {
         System.out.println("╔═══════════════════════════════════════════════════════════════╗");
         System.out.println("║                                                               ║");
-        System.out.println("║          STUDENT MANAGEMENT SYSTEM                            ║");
+        System.out.println("║                   STUDENT MANAGEMENT SYSTEM                   ║");
         System.out.println("║                                                               ║");
-        System.out.println("║                  Welcome to Viraj Campus                      ║");
+        System.out.println("║               Welcome to University of Kelaniya               ║");
         System.out.println("║                                                               ║");
         System.out.println("╚═══════════════════════════════════════════════════════════════╝");
         System.out.println();
