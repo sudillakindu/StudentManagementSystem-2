@@ -1,0 +1,406 @@
+===== Sample Terminal Run with Login System =====
+
+===== Login =====
+Enter Email: teacher@school.com
+Enter Password: teacher123
+Login successful! Welcome Teacher.
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 1
+
+--- Student Management ---
+1. Add Student
+2. Update Student
+3. Display Student
+4. Back to Main Menu
+Enter your choice: 1
+Enter Student ID: S001
+Enter Name: John Smith
+Enter Email: john.smith@email.com
+Student added successfully!
+
+--- Student Management ---
+1. Add Student
+2. Update Student
+3. Display Student
+4. Back to Main Menu
+Enter your choice: 1
+Enter Student ID: S002
+Enter Name: Sarah Johnson
+Enter Email: student@school.com
+Student added successfully!
+
+--- Student Management ---
+1. Add Student
+2. Update Student
+3. Display Student
+4. Back to Main Menu
+Enter your choice: 3
+Enter Student ID to display: S001
+Student Details:
+ID: 1
+Name: John Smith
+Student ID: S001
+Email: john.smith@email.com
+
+--- Student Management ---
+1. Add Student
+2. Update Student
+3. Display Student
+4. Back to Main Menu
+Enter your choice: 4
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 3
+
+--- Teacher Management ---
+1. Add Teacher
+2. Assign Course to Teacher
+3. View Teacher
+4. Back to Main Menu
+Enter your choice: 1
+Enter Teacher ID: T001
+Enter Name: Dr. Williams
+Enter Subject: Mathematics
+Teacher added successfully!
+
+--- Teacher Management ---
+1. Add Teacher
+2. Assign Course to Teacher
+3. View Teacher
+4. Back to Main Menu
+Enter your choice: 3
+Enter Teacher ID: T001
+Teacher Details:
+ID: 1
+Name: Dr. Williams
+Teacher ID: T001
+Subject: Mathematics
+
+--- Teacher Management ---
+1. Add Teacher
+2. Assign Course to Teacher
+3. View Teacher
+4. Back to Main Menu
+Enter your choice: 4
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 2
+
+--- Course Management ---
+1. Add Course
+2. Remove Course
+3. Display Courses
+4. Assign Student to Course
+5. Back to Main Menu
+Enter your choice: 1
+Enter Course ID: C101
+Enter Course Name: Introduction to Java
+Course added successfully!
+
+--- Course Management ---
+1. Add Course
+2. Remove Course
+3. Display Courses
+4. Assign Student to Course
+5. Back to Main Menu
+Enter your choice: 4
+Enter Course ID: C101
+Enter Student ID: S001
+Student John Smith assigned to course Introduction to Java
+
+--- Course Management ---
+1. Add Course
+2. Remove Course
+3. Display Courses
+4. Assign Student to Course
+5. Back to Main Menu
+Enter your choice: 3
+
+All Courses:
+-----------------------------------
+Course ID: C101
+Course Name: Introduction to Java
+Number of Students: 1
+---
+
+--- Course Management ---
+1. Add Course
+2. Remove Course
+3. Display Courses
+4. Assign Student to Course
+5. Back to Main Menu
+Enter your choice: 5
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 2
+
+--- Course Management ---
+1. Add Course
+2. Remove Course
+3. Display Courses
+4. Assign Student to Course
+5. Back to Main Menu
+Enter your choice: 4
+Enter Course ID: C101
+Enter Student ID: S002
+Student Sarah Johnson assigned to course Introduction to Java
+
+--- Course Management ---
+1. Add Course
+2. Remove Course
+3. Display Courses
+4. Assign Student to Course
+5. Back to Main Menu
+Enter your choice: 5
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 3
+
+--- Teacher Management ---
+1. Add Teacher
+2. Assign Course to Teacher
+3. View Teacher
+4. Back to Main Menu
+Enter your choice: 2
+Enter Teacher ID: T001
+Enter Course ID: C101
+Course assigned to teacher successfully!
+
+--- Teacher Management ---
+1. Add Teacher
+2. Assign Course to Teacher
+3. View Teacher
+4. Back to Main Menu
+Enter your choice: 4
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 4
+
+--- Grade Management ---
+1. Add Grade
+2. Calculate Average
+3. Display Performance Report
+4. Back to Main Menu
+Enter your choice: 1
+Enter Student ID: S002
+Enter Course ID: C101
+Enter Grade: 85.5
+Grade added successfully!
+
+--- Grade Management ---
+1. Add Grade
+2. Calculate Average
+3. Display Performance Report
+4. Back to Main Menu
+Enter your choice: 3
+Enter Student ID: S002
+Performance Report for Sarah Johnson
+-----------------------------------
+Course: Introduction to Java
+Grade: 85.5
+---
+Average Grade: 85.5
+
+--- Grade Management ---
+1. Add Grade
+2. Calculate Average
+3. Display Performance Report
+4. Back to Main Menu
+Enter your choice: 4
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 5
+
+--- Attendance Management ---
+1. Record Attendance
+2. View Attendance by Course
+3. Display Attendance Summary
+4. Back to Main Menu
+Enter your choice: 1
+Enter Student ID: S002
+Enter Course ID: C101
+Enter Date (DD-MM-YYYY): 15-01-2024
+Enter Status (Present/Absent): Present
+Attendance recorded successfully!
+
+--- Attendance Management ---
+1. Record Attendance
+2. View Attendance by Course
+3. Display Attendance Summary
+4. Back to Main Menu
+Enter your choice: 2
+Enter Course ID: C101
+Attendance for Course: Introduction to Java
+-----------------------------------
+Student: Sarah Johnson
+Date: 15-01-2024
+Status: Present
+---
+
+--- Attendance Management ---
+1. Record Attendance
+2. View Attendance by Course
+3. Display Attendance Summary
+4. Back to Main Menu
+Enter your choice: 3
+Attendance Summary
+-----------------------------------
+Total Records: 1
+Present: 1
+Absent: 0
+
+--- Attendance Management ---
+1. Record Attendance
+2. View Attendance by Course
+3. Display Attendance Summary
+4. Back to Main Menu
+Enter your choice: 4
+
+===== Student Management System (Teacher) =====
+1. Student Management
+2. Course Management
+3. Teacher Management
+4. Grade Management
+5. Attendance Management
+6. Exit
+===============================================
+Enter your choice: 6
+Thank you for using Student Management System!
+
+
+==========================================
+STUDENT LOGIN EXAMPLE
+==========================================
+
+===== Login =====
+Enter Email: student@school.com
+Enter Password: student123
+Login successful! Welcome Student.
+
+===== Student Management System (Student) =====
+1. View My Grades
+2. View My Attendance
+3. View My Courses
+4. Exit
+===============================================
+Enter your choice: 1
+
+My Attendance Records:
+-----------------------------------
+Course: Introduction to Java
+Date: 15-01-2024
+Status: Present
+---
+
+===== Student Management System (Student) =====
+1. View My Grades
+2. View My Attendance
+3. View My Courses
+4. Exit
+===============================================
+Enter your choice: 1
+
+Performance Report for Sarah Johnson
+-----------------------------------
+Course: Introduction to Java
+Grade: 85.5
+---
+Average Grade: 85.5
+
+===== Student Management System (Student) =====
+1. View My Grades
+2. View My Attendance
+3. View My Courses
+4. Exit
+===============================================
+Enter your choice: 3
+
+My Enrolled Courses:
+-----------------------------------
+Course ID: C101
+Course Name: Introduction to Java
+Teacher: Dr. Williams
+---
+
+===== Student Management System (Student) =====
+1. View My Grades
+2. View My Attendance
+3. View My Courses
+4. Exit
+===============================================
+Enter your choice: 4
+Thank you for using Student Management System!
+
+
+==========================================
+LOGIN FAILED EXAMPLE
+==========================================
+
+===== Login =====
+Enter Email: wrong@email.com
+Enter Password: wrongpass
+Invalid email or password!
+Login failed! Exiting system.
+
+
+==========================================
+HARDCODED LOGIN CREDENTIALS
+==========================================
+
+Teacher Login:
+  Email: teacher@school.com
+  Password: teacher123
+
+Student Login:
+  Email: student@school.com
+  Password: student123
