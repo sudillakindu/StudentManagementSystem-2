@@ -70,10 +70,6 @@ public class Attendance {
     
     // Display attendance summary
     public static void displaySummary(Attendance[] attendances, int count) {
-        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
-        System.out.println("║                    ATTENDANCE SUMMARY                          ║");
-        System.out.println("╠═══════════════════════════════════════════════════════════════╣");
-        
         int present = 0;
         int absent = 0;
         
@@ -85,10 +81,9 @@ public class Attendance {
             }
         }
         
-        System.out.println("║                                                               ║");
-        System.out.println("║  Total Records : " + count + "                           ");
-        System.out.println("║  Present       : " + present + "                           ");
-        System.out.println("║  Absent        : " + absent + "                           ");
-        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println("  Total Records : " + count);
+        System.out.println("  Present       : " + present);
+        System.out.println("  Absent        : " + absent);
+        System.out.println();
     }
 }

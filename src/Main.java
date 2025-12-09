@@ -862,6 +862,10 @@ public class Main {
     
     // Display attendance summary
     public static void displayAttendanceSummary() {
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                    ATTENDANCE SUMMARY                          ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
         Attendance.displaySummary(attendances, attendanceCount);
     }
 }
