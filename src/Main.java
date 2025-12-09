@@ -358,7 +358,7 @@ public class Main {
     // Display student
     public static void displayStudent() {
         System.out.println("╔═══════════════════════════════════════════════════════════════╗");
-        System.out.println("║                  STUDENT DETAILS                             ║");
+        System.out.println("║                  STUDENT DETAILS                              ║");
         System.out.println("╚═══════════════════════════════════════════════════════════════╝");
         System.out.println();
         System.out.print("  Enter Student ID to display : ");
@@ -863,7 +863,7 @@ public class Main {
     // Display attendance summary
     public static void displayAttendanceSummary() {
         System.out.println("╔═══════════════════════════════════════════════════════════════╗");
-        System.out.println("║                    ATTENDANCE SUMMARY                          ║");
+        System.out.println("║                    ATTENDANCE SUMMARY                         ║");
         System.out.println("╚═══════════════════════════════════════════════════════════════╝");
         System.out.println();
         Attendance.displaySummary(attendances, attendanceCount);
