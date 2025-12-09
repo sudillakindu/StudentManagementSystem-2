@@ -49,29 +49,30 @@ public class Attendance {
     
     // View attendance by course
     public static void viewAttendanceByCourse(Attendance[] attendances, int count, Course course) {
-        System.out.println("Attendance for Course: " + course.getCourseName());
-        System.out.println("-----------------------------------");
+        System.out.println();
         
         boolean found = false;
         for (int i = 0; i < count; i++) {
             if (attendances[i].getCourse().getCourseId().equals(course.getCourseId())) {
-                System.out.println("Student: " + attendances[i].getStudent().getName());
-                System.out.println("Date: " + attendances[i].getDate());
-                System.out.println("Status: " + attendances[i].getStatus());
-                System.out.println("---");
+                System.out.println("  Student : " + attendances[i].getStudent().getName());
+                System.out.println("  Date    : " + attendances[i].getDate());
+                System.out.println("  Status  : " + attendances[i].getStatus());
+                System.out.println();
                 found = true;
             }
         }
         
         if (found == false) {
-            System.out.println("No attendance records found for this course.");
+            System.out.println("  No attendance records found for this course.");
+            System.out.println();
         }
     }
     
     // Display attendance summary
     public static void displaySummary(Attendance[] attendances, int count) {
-        System.out.println("Attendance Summary");
-        System.out.println("-----------------------------------");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                    ATTENDANCE SUMMARY                          ║");
+        System.out.println("╠═══════════════════════════════════════════════════════════════╣");
         
         int present = 0;
         int absent = 0;
@@ -84,8 +85,10 @@ public class Attendance {
             }
         }
         
-        System.out.println("Total Records: " + count);
-        System.out.println("Present: " + present);
-        System.out.println("Absent: " + absent);
+        System.out.println("║                                                               ║");
+        System.out.println("║  Total Records : " + count + "                           ");
+        System.out.println("║  Present       : " + present + "                           ");
+        System.out.println("║  Absent        : " + absent + "                           ");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
     }
 }

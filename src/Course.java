@@ -45,19 +45,20 @@ public class Course {
         if (studentCount < 50) {
             students[studentCount] = student;
             studentCount = studentCount + 1;
-            System.out.println("Student " + student.getName() + " assigned to course " + courseName);
+            System.out.println("✓ Student " + student.getName() + " assigned to course " + courseName);
         } else {
-            System.out.println("Course is full!");
+            System.out.println("✗ ERROR: Course is full!");
         }
     }
     
     // Method to display course
     public void displayCourse() {
-        System.out.println("Course ID: " + courseId);
-        System.out.println("Course Name: " + courseName);
+        System.out.println("  Course ID          : " + courseId);
+        System.out.println("  Course Name        : " + courseName);
         if (teacher != null) {
-            System.out.println("Teacher: " + teacher.getName());
+            System.out.println("  Teacher            : " + teacher.getName());
         }
-        System.out.println("Number of Students: " + studentCount);
+        System.out.println("  Number of Students : " + studentCount);
+        System.out.println();
     }
 }

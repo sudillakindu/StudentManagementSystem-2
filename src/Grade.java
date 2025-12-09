@@ -59,24 +59,25 @@ public class Grade {
     
     // Display performance report
     public static void displayPerformanceReport(Grade[] grades, int count, Student student) {
-        System.out.println("Performance Report for " + student.getName());
-        System.out.println("-----------------------------------");
+        System.out.println();
         
         boolean found = false;
         for (int i = 0; i < count; i++) {
             if (grades[i].getStudent().getId() == student.getId()) {
-                System.out.println("Course: " + grades[i].getCourse().getCourseName());
-                System.out.println("Grade: " + grades[i].getGrade());
-                System.out.println("---");
+                System.out.println("  Course : " + grades[i].getCourse().getCourseName());
+                System.out.println("  Grade  : " + grades[i].getGrade());
+                System.out.println();
                 found = true;
             }
         }
         
         if (found == true) {
             double average = calculateAverage(grades, count, student);
-            System.out.println("Average Grade: " + average);
+            System.out.println("  Average Grade : " + average);
+            System.out.println();
         } else {
-            System.out.println("No grades found for this student.");
+            System.out.println("  No grades found for this student.");
+            System.out.println();
         }
     }
 }

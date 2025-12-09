@@ -29,6 +29,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
     
     public static void main(String[] args) {
+        showWelcomeBanner();
         // Login
         if (login() == true) {
             int choice = 0;
@@ -36,9 +37,10 @@ public class Main {
             do {
                 if (currentRole.equals("teacher")) {
                     showTeacherMenu();
-                    System.out.print("Enter your choice: ");
+                    System.out.print("\n>>> Enter your choice: ");
                     choice = scanner.nextInt();
                     scanner.nextLine();
+                    System.out.println();
                     
                     if (choice == 1) {
                         studentMenu();
@@ -51,15 +53,16 @@ public class Main {
                     } else if (choice == 5) {
                         attendanceMenu();
                     } else if (choice == 6) {
-                        System.out.println("Thank you for using Student Management System!");
+                        showExitMessage();
                     } else {
-                        System.out.println("Invalid choice! Please try again.");
+                        showErrorMessage("Invalid choice! Please try again.");
                     }
                 } else if (currentRole.equals("student")) {
                     showStudentMenu();
-                    System.out.print("Enter your choice: ");
+                    System.out.print("\n>>> Enter your choice: ");
                     choice = scanner.nextInt();
                     scanner.nextLine();
+                    System.out.println();
                     
                     if (choice == 1) {
                         viewMyGrades();
@@ -68,59 +71,114 @@ public class Main {
                     } else if (choice == 3) {
                         viewMyCourses();
                     } else if (choice == 4) {
-                        System.out.println("Thank you for using Student Management System!");
+                        showExitMessage();
                     } else {
-                        System.out.println("Invalid choice! Please try again.");
+                        showErrorMessage("Invalid choice! Please try again.");
                     }
                 }
             } while ((currentRole.equals("teacher") && choice != 6) || (currentRole.equals("student") && choice != 4));
         } else {
-            System.out.println("Login failed! Exiting system.");
+            showErrorMessage("Login failed! Exiting system.");
         }
+    }
+    
+    // Welcome banner
+    public static void showWelcomeBanner() {
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                                                               ║");
+        System.out.println("║          STUDENT MANAGEMENT SYSTEM                            ║");
+        System.out.println("║                                                               ║");
+        System.out.println("║                  Welcome to Viraj Campus                      ║");
+        System.out.println("║                                                               ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+    }
+    
+    // Success message
+    public static void showSuccessMessage(String message) {
+        System.out.println();
+        System.out.println("✓ SUCCESS: " + message);
+        System.out.println();
+    }
+    
+    // Error message
+    public static void showErrorMessage(String message) {
+        System.out.println();
+        System.out.println("✗ ERROR: " + message);
+        System.out.println();
+    }
+    
+    // Exit message
+    public static void showExitMessage() {
+        System.out.println();
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                                                               ║");
+        System.out.println("║     Thank you for using Student Management System!            ║");
+        System.out.println("║                   Have a great day!                           ║");
+        System.out.println("║                                                               ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
     }
     
     // Login method
     public static boolean login() {
-        System.out.println("\n===== Login =====");
-        System.out.print("Enter Email: ");
+        System.out.println();
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                        LOGIN PAGE                             ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Email    : ");
         String email = scanner.nextLine();
-        System.out.print("Enter Password: ");
+        System.out.print("  Password : ");
         String password = scanner.nextLine();
+        System.out.println();
         
         if (email.equals(TEACHER_EMAIL) && password.equals(TEACHER_PASSWORD)) {
             currentRole = "teacher";
-            System.out.println("Login successful! Welcome Teacher.");
+            System.out.println("✓ Login successful! Welcome Teacher.");
+            System.out.println();
             return true;
         } else if (email.equals(STUDENT_EMAIL) && password.equals(STUDENT_PASSWORD)) {
             currentRole = "student";
-            System.out.println("Login successful! Welcome Student.");
+            System.out.println("✓ Login successful! Welcome Student.");
+            System.out.println();
             return true;
         } else {
-            System.out.println("Invalid email or password!");
+            showErrorMessage("Invalid email or password!");
             return false;
         }
     }
     
     // Show teacher menu
     public static void showTeacherMenu() {
-        System.out.println("\n===== Student Management System (Teacher) =====");
-        System.out.println("1. Student Management");
-        System.out.println("2. Course Management");
-        System.out.println("3. Teacher Management");
-        System.out.println("4. Grade Management");
-        System.out.println("5. Attendance Management");
-        System.out.println("6. Exit");
-        System.out.println("===============================================");
+        System.out.println();
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║          STUDENT MANAGEMENT SYSTEM (TEACHER)                  ║");
+        System.out.println("╠═══════════════════════════════════════════════════════════════╣");
+        System.out.println("║                                                               ║");
+        System.out.println("║  1. Student Management                                        ║");
+        System.out.println("║  2. Course Management                                         ║");
+        System.out.println("║  3. Teacher Management                                        ║");
+        System.out.println("║  4. Grade Management                                          ║");
+        System.out.println("║  5. Attendance Management                                     ║");
+        System.out.println("║  6. Exit                                                      ║");
+        System.out.println("║                                                               ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
     }
     
     // Show student menu
     public static void showStudentMenu() {
-        System.out.println("\n===== Student Management System (Student) =====");
-        System.out.println("1. View My Grades");
-        System.out.println("2. View My Attendance");
-        System.out.println("3. View My Courses");
-        System.out.println("4. Exit");
-        System.out.println("===============================================");
+        System.out.println();
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║          STUDENT MANAGEMENT SYSTEM (STUDENT)                  ║");
+        System.out.println("╠═══════════════════════════════════════════════════════════════╣");
+        System.out.println("║                                                               ║");
+        System.out.println("║  1. View My Grades                                            ║");
+        System.out.println("║  2. View My Attendance                                        ║");
+        System.out.println("║  3. View My Courses                                           ║");
+        System.out.println("║  4. Exit                                                      ║");
+        System.out.println("║                                                               ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
     }
     
     // View my grades
@@ -134,9 +192,12 @@ public class Main {
         }
         
         if (currentStudent != null) {
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("            PERFORMANCE REPORT FOR " + currentStudent.getName() + "                            ");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
             Grade.displayPerformanceReport(grades, gradeCount, currentStudent);
         } else {
-            System.out.println("Student profile not found in system.");
+            showErrorMessage("Student profile not found in system.");
         }
     }
     
@@ -151,30 +212,35 @@ public class Main {
         }
         
         if (currentStudent != null) {
-            System.out.println("\nMy Attendance Records:");
-            System.out.println("-----------------------------------");
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("║                  MY ATTENDANCE RECORDS                        ║");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+            System.out.println();
             boolean found = false;
             for (int i = 0; i < attendanceCount; i++) {
                 if (attendances[i].getStudent().getEmail().equals(STUDENT_EMAIL)) {
-                    System.out.println("Course: " + attendances[i].getCourse().getCourseName());
-                    System.out.println("Date: " + attendances[i].getDate());
-                    System.out.println("Status: " + attendances[i].getStatus());
-                    System.out.println("---");
+                    System.out.println("  Course : " + attendances[i].getCourse().getCourseName());
+                    System.out.println("  Date   : " + attendances[i].getDate());
+                    System.out.println("  Status : " + attendances[i].getStatus());
+                    System.out.println();
                     found = true;
                 }
             }
             if (found == false) {
-                System.out.println("No attendance records found.");
+                System.out.println("  No attendance records found.");
+                System.out.println();
             }
         } else {
-            System.out.println("Student profile not found in system.");
+            showErrorMessage("Student profile not found in system.");
         }
     }
     
     // View my courses
     public static void viewMyCourses() {
-        System.out.println("\nMy Enrolled Courses:");
-        System.out.println("-----------------------------------");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                    MY ENROLLED COURSES                        ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
         Student currentStudent = null;
         for (int i = 0; i < studentCount; i++) {
             if (students[i].getEmail().equals(STUDENT_EMAIL)) {
@@ -186,19 +252,20 @@ public class Main {
         if (currentStudent != null) {
             boolean found = false;
             for (int i = 0; i < courseCount; i++) {
-                System.out.println("Course ID: " + courses[i].getCourseId());
-                System.out.println("Course Name: " + courses[i].getCourseName());
+                System.out.println("  Course ID   : " + courses[i].getCourseId());
+                System.out.println("  Course Name : " + courses[i].getCourseName());
                 if (courses[i].getTeacher() != null) {
-                    System.out.println("Teacher: " + courses[i].getTeacher().getName());
+                    System.out.println("  Teacher     : " + courses[i].getTeacher().getName());
                 }
-                System.out.println("---");
+                System.out.println();
                 found = true;
             }
             if (found == false) {
-                System.out.println("No courses enrolled.");
+                System.out.println("  No courses enrolled.");
+                System.out.println();
             }
         } else {
-            System.out.println("Student profile not found in system.");
+            showErrorMessage("Student profile not found in system.");
         }
     }
     
@@ -206,14 +273,21 @@ public class Main {
     public static void studentMenu() {
         int choice = 0;
         do {
-            System.out.println("\n--- Student Management ---");
-            System.out.println("1. Add Student");
-            System.out.println("2. Update Student");
-            System.out.println("3. Display Student");
-            System.out.println("4. Back to Main Menu");
-            System.out.print("Enter your choice: ");
+            System.out.println();
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("║                   STUDENT MANAGEMENT                          ║");
+            System.out.println("╠═══════════════════════════════════════════════════════════════╣");
+            System.out.println("║                                                               ║");
+            System.out.println("║  1. Add Student                                               ║");
+            System.out.println("║  2. Update Student                                            ║");
+            System.out.println("║  3. Display Student                                           ║");
+            System.out.println("║  4. Back to Main Menu                                         ║");
+            System.out.println("║                                                               ║");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+            System.out.print("\n>>> Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
+            System.out.println();
             
             if (choice == 1) {
                 addStudent();
@@ -224,56 +298,72 @@ public class Main {
             } else if (choice == 4) {
                 break;
             } else {
-                System.out.println("Invalid choice!");
+                showErrorMessage("Invalid choice!");
             }
         } while (choice != 4);
     }
     
     // Add student
     public static void addStudent() {
-        System.out.print("Enter Student ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                      ADD NEW STUDENT                          ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Student ID : ");
         String studentId = scanner.nextLine();
-        System.out.print("Enter Name: ");
+        System.out.print("  Enter Name       : ");
         String name = scanner.nextLine();
-        System.out.print("Enter Email: ");
+        System.out.print("  Enter Email      : ");
         String email = scanner.nextLine();
+        System.out.println();
         
         Student student = new Student(studentCount + 1, name, studentId, email);
         students[studentCount] = student;
         studentCount = studentCount + 1;
-        System.out.println("Student added successfully!");
+        showSuccessMessage("Student added successfully!");
     }
     
     // Update student
     public static void updateStudent() {
-        System.out.print("Enter Student ID to update: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                    UPDATE STUDENT                             ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Student ID to update : ");
         String studentId = scanner.nextLine();
+        System.out.println();
         
         boolean found = false;
         for (int i = 0; i < studentCount; i++) {
             if (students[i].getStudentId().equals(studentId)) {
-                System.out.print("Enter new Name: ");
+                System.out.print("  Enter new Name              : ");
                 String newName = scanner.nextLine();
-                System.out.print("Enter new Email: ");
+                System.out.print("  Enter new Email             : ");
                 String newEmail = scanner.nextLine();
+                System.out.println();
                 
                 students[i].setName(newName);
                 students[i].setEmail(newEmail);
-                System.out.println("Student updated successfully!");
+                showSuccessMessage("Student updated successfully!");
                 found = true;
                 break;
             }
         }
         
         if (found == false) {
-            System.out.println("Student not found!");
+            showErrorMessage("Student not found!");
         }
     }
     
     // Display student
     public static void displayStudent() {
-        System.out.print("Enter Student ID to display: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                  STUDENT DETAILS                             ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Student ID to display : ");
         String studentId = scanner.nextLine();
+        System.out.println();
         
         boolean found = false;
         for (int i = 0; i < studentCount; i++) {
@@ -285,7 +375,7 @@ public class Main {
         }
         
         if (found == false) {
-            System.out.println("Student not found!");
+            showErrorMessage("Student not found!");
         }
     }
     
@@ -293,15 +383,22 @@ public class Main {
     public static void courseMenu() {
         int choice = 0;
         do {
-            System.out.println("\n--- Course Management ---");
-            System.out.println("1. Add Course");
-            System.out.println("2. Remove Course");
-            System.out.println("3. Display Courses");
-            System.out.println("4. Assign Student to Course");
-            System.out.println("5. Back to Main Menu");
-            System.out.print("Enter your choice: ");
+            System.out.println();
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("║                    COURSE MANAGEMENT                          ║");
+            System.out.println("╠═══════════════════════════════════════════════════════════════╣");
+            System.out.println("║                                                               ║");
+            System.out.println("║  1. Add Course                                                ║");
+            System.out.println("║  2. Remove Course                                             ║");
+            System.out.println("║  3. Display Courses                                           ║");
+            System.out.println("║  4. Assign Student to Course                                  ║");
+            System.out.println("║  5. Back to Main Menu                                         ║");
+            System.out.println("║                                                               ║");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+            System.out.print("\n>>> Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
+            System.out.println();
             
             if (choice == 1) {
                 addCourse();
@@ -314,28 +411,38 @@ public class Main {
             } else if (choice == 5) {
                 break;
             } else {
-                System.out.println("Invalid choice!");
+                showErrorMessage("Invalid choice!");
             }
         } while (choice != 5);
     }
     
     // Add course
     public static void addCourse() {
-        System.out.print("Enter Course ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                       ADD NEW COURSE                          ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Course ID   : ");
         String courseId = scanner.nextLine();
-        System.out.print("Enter Course Name: ");
+        System.out.print("  Enter Course Name : ");
         String courseName = scanner.nextLine();
+        System.out.println();
         
         Course course = new Course(courseId, courseName);
         courses[courseCount] = course;
         courseCount = courseCount + 1;
-        System.out.println("Course added successfully!");
+        showSuccessMessage("Course added successfully!");
     }
     
     // Remove course
     public static void removeCourse() {
-        System.out.print("Enter Course ID to remove: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                      REMOVE COURSE                            ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Course ID to remove : ");
         String courseId = scanner.nextLine();
+        System.out.println();
         
         boolean found = false;
         for (int i = 0; i < courseCount; i++) {
@@ -344,38 +451,44 @@ public class Main {
                     courses[j] = courses[j + 1];
                 }
                 courseCount = courseCount - 1;
-                System.out.println("Course removed successfully!");
+                showSuccessMessage("Course removed successfully!");
                 found = true;
                 break;
             }
         }
         
         if (found == false) {
-            System.out.println("Course not found!");
+            showErrorMessage("Course not found!");
         }
     }
     
     // Display courses
     public static void displayCourses() {
         if (courseCount == 0) {
-            System.out.println("No courses available.");
+            showErrorMessage("No courses available.");
             return;
         }
         
-        System.out.println("\nAll Courses:");
-        System.out.println("-----------------------------------");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                        ALL COURSES                            ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
         for (int i = 0; i < courseCount; i++) {
             courses[i].displayCourse();
-            System.out.println("---");
         }
     }
     
     // Assign student to course
     public static void assignStudentToCourse() {
-        System.out.print("Enter Course ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║              ASSIGN STUDENT TO COURSE                         ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Course ID  : ");
         String courseId = scanner.nextLine();
-        System.out.print("Enter Student ID: ");
+        System.out.print("  Enter Student ID : ");
         String studentId = scanner.nextLine();
+        System.out.println();
         
         Course course = null;
         Student student = null;
@@ -396,8 +509,9 @@ public class Main {
         
         if (course != null && student != null) {
             course.assignStudent(student);
+            System.out.println();
         } else {
-            System.out.println("Course or Student not found!");
+            showErrorMessage("Course or Student not found!");
         }
     }
     
@@ -405,14 +519,21 @@ public class Main {
     public static void teacherMenu() {
         int choice = 0;
         do {
-            System.out.println("\n--- Teacher Management ---");
-            System.out.println("1. Add Teacher");
-            System.out.println("2. Assign Course to Teacher");
-            System.out.println("3. View Teacher");
-            System.out.println("4. Back to Main Menu");
-            System.out.print("Enter your choice: ");
+            System.out.println();
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("║                   TEACHER MANAGEMENT                          ║");
+            System.out.println("╠═══════════════════════════════════════════════════════════════╣");
+            System.out.println("║                                                               ║");
+            System.out.println("║  1. Add Teacher                                               ║");
+            System.out.println("║  2. Assign Course to Teacher                                  ║");
+            System.out.println("║  3. View Teacher                                              ║");
+            System.out.println("║  4. Back to Main Menu                                         ║");
+            System.out.println("║                                                               ║");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+            System.out.print("\n>>> Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
+            System.out.println();
             
             if (choice == 1) {
                 addTeacher();
@@ -423,32 +544,42 @@ public class Main {
             } else if (choice == 4) {
                 break;
             } else {
-                System.out.println("Invalid choice!");
+                showErrorMessage("Invalid choice!");
             }
         } while (choice != 4);
     }
     
     // Add teacher
     public static void addTeacher() {
-        System.out.print("Enter Teacher ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                      ADD NEW TEACHER                          ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Teacher ID : ");
         String teacherId = scanner.nextLine();
-        System.out.print("Enter Name: ");
+        System.out.print("  Enter Name       : ");
         String name = scanner.nextLine();
-        System.out.print("Enter Subject: ");
+        System.out.print("  Enter Subject    : ");
         String subject = scanner.nextLine();
+        System.out.println();
         
         Teacher teacher = new Teacher(teacherCount + 1, name, teacherId, subject);
         teachers[teacherCount] = teacher;
         teacherCount = teacherCount + 1;
-        System.out.println("Teacher added successfully!");
+        showSuccessMessage("Teacher added successfully!");
     }
     
     // Assign course to teacher
     public static void assignCourseToTeacher() {
-        System.out.print("Enter Teacher ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║            ASSIGN COURSE TO TEACHER                           ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Teacher ID : ");
         String teacherId = scanner.nextLine();
-        System.out.print("Enter Course ID: ");
+        System.out.print("  Enter Course ID  : ");
         String courseId = scanner.nextLine();
+        System.out.println();
         
         Teacher teacher = null;
         Course course = null;
@@ -469,16 +600,21 @@ public class Main {
         
         if (teacher != null && course != null) {
             course.setTeacher(teacher);
-            System.out.println("Course assigned to teacher successfully!");
+            showSuccessMessage("Course assigned to teacher successfully!");
         } else {
-            System.out.println("Teacher or Course not found!");
+            showErrorMessage("Teacher or Course not found!");
         }
     }
     
     // View teacher
     public static void viewTeacher() {
-        System.out.print("Enter Teacher ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                    TEACHER DETAILS                            ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Teacher ID : ");
         String teacherId = scanner.nextLine();
+        System.out.println();
         
         boolean found = false;
         for (int i = 0; i < teacherCount; i++) {
@@ -490,7 +626,7 @@ public class Main {
         }
         
         if (found == false) {
-            System.out.println("Teacher not found!");
+            showErrorMessage("Teacher not found!");
         }
     }
     
@@ -498,14 +634,21 @@ public class Main {
     public static void gradeMenu() {
         int choice = 0;
         do {
-            System.out.println("\n--- Grade Management ---");
-            System.out.println("1. Add Grade");
-            System.out.println("2. Calculate Average");
-            System.out.println("3. Display Performance Report");
-            System.out.println("4. Back to Main Menu");
-            System.out.print("Enter your choice: ");
+            System.out.println();
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("║                     GRADE MANAGEMENT                          ║");
+            System.out.println("╠═══════════════════════════════════════════════════════════════╣");
+            System.out.println("║                                                               ║");
+            System.out.println("║  1. Add Grade                                                 ║");
+            System.out.println("║  2. Calculate Average                                         ║");
+            System.out.println("║  3. Display Performance Report                                ║");
+            System.out.println("║  4. Back to Main Menu                                         ║");
+            System.out.println("║                                                               ║");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+            System.out.print("\n>>> Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
+            System.out.println();
             
             if (choice == 1) {
                 addGrade();
@@ -516,20 +659,25 @@ public class Main {
             } else if (choice == 4) {
                 break;
             } else {
-                System.out.println("Invalid choice!");
+                showErrorMessage("Invalid choice!");
             }
         } while (choice != 4);
     }
     
     // Add grade
     public static void addGrade() {
-        System.out.print("Enter Student ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                        ADD GRADE                              ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Student ID : ");
         String studentId = scanner.nextLine();
-        System.out.print("Enter Course ID: ");
+        System.out.print("  Enter Course ID  : ");
         String courseId = scanner.nextLine();
-        System.out.print("Enter Grade: ");
+        System.out.print("  Enter Grade      : ");
         double grade = scanner.nextDouble();
         scanner.nextLine();
+        System.out.println();
         
         Student student = null;
         Course course = null;
@@ -552,16 +700,21 @@ public class Main {
             Grade gradeObj = new Grade(student, course, grade);
             grades[gradeCount] = gradeObj;
             gradeCount = gradeCount + 1;
-            System.out.println("Grade added successfully!");
+            showSuccessMessage("Grade added successfully!");
         } else {
-            System.out.println("Student or Course not found!");
+            showErrorMessage("Student or Course not found!");
         }
     }
     
     // Calculate average
     public static void calculateAverage() {
-        System.out.print("Enter Student ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                   CALCULATE AVERAGE                           ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Student ID : ");
         String studentId = scanner.nextLine();
+        System.out.println();
         
         Student student = null;
         for (int i = 0; i < studentCount; i++) {
@@ -573,16 +726,20 @@ public class Main {
         
         if (student != null) {
             double average = Grade.calculateAverage(grades, gradeCount, student);
-            System.out.println("Average grade for " + student.getName() + ": " + average);
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("║  Average grade for " + student.getName() + " : " + average + "                           ");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+            System.out.println();
         } else {
-            System.out.println("Student not found!");
+            showErrorMessage("Student not found!");
         }
     }
     
     // Display performance report
     public static void displayPerformanceReport() {
-        System.out.print("Enter Student ID: ");
+        System.out.print("  Enter Student ID : ");
         String studentId = scanner.nextLine();
+        System.out.println();
         
         Student student = null;
         for (int i = 0; i < studentCount; i++) {
@@ -593,9 +750,12 @@ public class Main {
         }
         
         if (student != null) {
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("            PERFORMANCE REPORT FOR " + student.getName() + "                            ");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
             Grade.displayPerformanceReport(grades, gradeCount, student);
         } else {
-            System.out.println("Student not found!");
+            showErrorMessage("Student not found!");
         }
     }
     
@@ -603,14 +763,21 @@ public class Main {
     public static void attendanceMenu() {
         int choice = 0;
         do {
-            System.out.println("\n--- Attendance Management ---");
-            System.out.println("1. Record Attendance");
-            System.out.println("2. View Attendance by Course");
-            System.out.println("3. Display Attendance Summary");
-            System.out.println("4. Back to Main Menu");
-            System.out.print("Enter your choice: ");
+            System.out.println();
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("║                  ATTENDANCE MANAGEMENT                        ║");
+            System.out.println("╠═══════════════════════════════════════════════════════════════╣");
+            System.out.println("║                                                               ║");
+            System.out.println("║  1. Record Attendance                                         ║");
+            System.out.println("║  2. View Attendance by Course                                 ║");
+            System.out.println("║  3. Display Attendance Summary                                ║");
+            System.out.println("║  4. Back to Main Menu                                         ║");
+            System.out.println("║                                                               ║");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+            System.out.print("\n>>> Enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
+            System.out.println();
             
             if (choice == 1) {
                 recordAttendance();
@@ -621,21 +788,26 @@ public class Main {
             } else if (choice == 4) {
                 break;
             } else {
-                System.out.println("Invalid choice!");
+                showErrorMessage("Invalid choice!");
             }
         } while (choice != 4);
     }
     
     // Record attendance
     public static void recordAttendance() {
-        System.out.print("Enter Student ID: ");
+        System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                    RECORD ATTENDANCE                          ║");
+        System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
+        System.out.print("  Enter Student ID        : ");
         String studentId = scanner.nextLine();
-        System.out.print("Enter Course ID: ");
+        System.out.print("  Enter Course ID         : ");
         String courseId = scanner.nextLine();
-        System.out.print("Enter Date (DD-MM-YYYY): ");
+        System.out.print("  Enter Date (DD-MM-YYYY) : ");
         String date = scanner.nextLine();
-        System.out.print("Enter Status (Present/Absent): ");
+        System.out.print("  Enter Status (Present/Absent) : ");
         String status = scanner.nextLine();
+        System.out.println();
         
         Student student = null;
         Course course = null;
@@ -658,16 +830,17 @@ public class Main {
             Attendance attendance = new Attendance(student, course, date, status);
             attendances[attendanceCount] = attendance;
             attendanceCount = attendanceCount + 1;
-            System.out.println("Attendance recorded successfully!");
+            showSuccessMessage("Attendance recorded successfully!");
         } else {
-            System.out.println("Student or Course not found!");
+            showErrorMessage("Student or Course not found!");
         }
     }
     
     // View attendance by course
     public static void viewAttendanceByCourse() {
-        System.out.print("Enter Course ID: ");
+        System.out.print("  Enter Course ID : ");
         String courseId = scanner.nextLine();
+        System.out.println();
         
         Course course = null;
         for (int i = 0; i < courseCount; i++) {
@@ -678,9 +851,12 @@ public class Main {
         }
         
         if (course != null) {
+            System.out.println("╔═══════════════════════════════════════════════════════════════╗");
+            System.out.println("         ATTENDANCE FOR COURSE: " + course.getCourseName() + "                            ");
+            System.out.println("╚═══════════════════════════════════════════════════════════════╝");
             Attendance.viewAttendanceByCourse(attendances, attendanceCount, course);
         } else {
-            System.out.println("Course not found!");
+            showErrorMessage("Course not found!");
         }
     }
     

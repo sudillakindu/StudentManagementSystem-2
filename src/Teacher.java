@@ -30,10 +30,11 @@ public class Teacher extends User {
     
     // Override display method
     public void displayDetails() {
-        System.out.println("Teacher Details:");
-        System.out.println("ID: " + getId());
-        System.out.println("Name: " + getName());
-        System.out.println("Teacher ID: " + teacherId);
-        System.out.println("Subject: " + subject);
+        System.out.println();
+        System.out.println("  ID         : " + getId());
+        System.out.println("  Name       : " + getName());
+        System.out.println("  Teacher ID : " + teacherId);
+        System.out.println("  Subject    : " + subject);
+        System.out.println();
     }
 }
