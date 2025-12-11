@@ -31,54 +31,68 @@ public class Main {
     public static void main(String[] args) {
         showWelcomeBanner();
         // Login
-        if (login() == true) {
-            int choice = 0;
-            
-            do {
-                if (currentRole.equals("teacher")) {
-                    showTeacherMenu();
-                    System.out.print("\n>>> Enter your choice: ");
-                    choice = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.println();
-                    
-                    if (choice == 1) {
-                        studentMenu();
-                    } else if (choice == 2) {
-                        courseMenu();
-                    } else if (choice == 3) {
-                        teacherMenu();
-                    } else if (choice == 4) {
-                        gradeMenu();
-                    } else if (choice == 5) {
-                        attendanceMenu();
-                    } else if (choice == 6) {
-                        showExitMessage();
-                    } else {
-                        showErrorMessage("Invalid choice! Please try again.");
+        boolean continueSystem = true;
+        while (continueSystem) {
+            if (login() == true) {
+                int choice = 0;
+                boolean backToLogin = false;
+                
+                do {
+                    if (currentRole.equals("teacher")) {
+                        showTeacherMenu();
+                        System.out.print(">>> Enter your choice: ");
+                        choice = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println();
+                        
+                        if (choice == 1) {
+                            studentMenu();
+                        } else if (choice == 2) {
+                            courseMenu();
+                        } else if (choice == 3) {
+                            teacherMenu();
+                        } else if (choice == 4) {
+                            gradeMenu();
+                        } else if (choice == 5) {
+                            attendanceMenu();
+                        } else if (choice == 6) {
+                            backToLogin = true;
+                            currentRole = "";
+                            System.out.println();
+                        } else if (choice == 7) {
+                            showExitMessage();
+                            continueSystem = false;
+                            backToLogin = false;
+                        } else {
+                            showErrorMessage("Invalid choice! Please try again.");
+                        }
+                    } else if (currentRole.equals("student")) {
+                        showStudentMenu();
+                        System.out.print(">>> Enter your choice: ");
+                        choice = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println();
+                        
+                        if (choice == 1) {
+                            viewMyGrades();
+                        } else if (choice == 2) {
+                            viewMyAttendance();
+                        } else if (choice == 3) {
+                            viewMyCourses();
+                        } else if (choice == 6) {
+                            backToLogin = true;
+                            currentRole = "";
+                            System.out.println();
+                        } else if (choice == 7) {
+                            showExitMessage();
+                            continueSystem = false;
+                            backToLogin = false;
+                        } else {
+                            showErrorMessage("Invalid choice! Please try again.");
+                        }
                     }
-                } else if (currentRole.equals("student")) {
-                    showStudentMenu();
-                    System.out.print("\n>>> Enter your choice: ");
-                    choice = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.println();
-                    
-                    if (choice == 1) {
-                        viewMyGrades();
-                    } else if (choice == 2) {
-                        viewMyAttendance();
-                    } else if (choice == 3) {
-                        viewMyCourses();
-                    } else if (choice == 4) {
-                        showExitMessage();
-                    } else {
-                        showErrorMessage("Invalid choice! Please try again.");
-                    }
-                }
-            } while ((currentRole.equals("teacher") && choice != 6) || (currentRole.equals("student") && choice != 4));
-        } else {
-            showErrorMessage("Login failed! Exiting system.");
+                } while (!backToLogin && continueSystem);
+            } 
         }
     }
     
@@ -96,21 +110,18 @@ public class Main {
     
     // Success message
     public static void showSuccessMessage(String message) {
-        System.out.println();
         System.out.println("✓ SUCCESS: " + message);
         System.out.println();
     }
     
     // Error message
     public static void showErrorMessage(String message) {
-        System.out.println();
         System.out.println("✗ ERROR: " + message);
         System.out.println();
     }
     
     // Exit message
     public static void showExitMessage() {
-        System.out.println();
         System.out.println("╔═══════════════════════════════════════════════════════════════╗");
         System.out.println("║                                                               ║");
         System.out.println("║     Thank you for using Student Management System!            ║");
@@ -122,7 +133,6 @@ public class Main {
     
     // Login method
     public static boolean login() {
-        System.out.println();
         System.out.println("╔═══════════════════════════════════════════════════════════════╗");
         System.out.println("║                        LOGIN PAGE                             ║");
         System.out.println("╚═══════════════════════════════════════════════════════════════╝");
@@ -151,7 +161,6 @@ public class Main {
     
     // Show teacher menu
     public static void showTeacherMenu() {
-        System.out.println();
         System.out.println("╔═══════════════════════════════════════════════════════════════╗");
         System.out.println("║          STUDENT MANAGEMENT SYSTEM (TEACHER)                  ║");
         System.out.println("╠═══════════════════════════════════════════════════════════════╣");
@@ -161,14 +170,15 @@ public class Main {
         System.out.println("║  3. Teacher Management                                        ║");
         System.out.println("║  4. Grade Management                                          ║");
         System.out.println("║  5. Attendance Management                                     ║");
-        System.out.println("║  6. Exit                                                      ║");
+        System.out.println("║  6. Back to Login                                             ║");
+        System.out.println("║  7. Exit                                                      ║");
         System.out.println("║                                                               ║");
         System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
     }
     
     // Show student menu
     public static void showStudentMenu() {
-        System.out.println();
         System.out.println("╔═══════════════════════════════════════════════════════════════╗");
         System.out.println("║          STUDENT MANAGEMENT SYSTEM (STUDENT)                  ║");
         System.out.println("╠═══════════════════════════════════════════════════════════════╣");
@@ -176,9 +186,11 @@ public class Main {
         System.out.println("║  1. View My Grades                                            ║");
         System.out.println("║  2. View My Attendance                                        ║");
         System.out.println("║  3. View My Courses                                           ║");
-        System.out.println("║  4. Exit                                                      ║");
+        System.out.println("║  6. Back to Login                                             ║");
+        System.out.println("║  7. Exit                                                      ║");
         System.out.println("║                                                               ║");
         System.out.println("╚═══════════════════════════════════════════════════════════════╝");
+        System.out.println();
     }
     
     // View my grades
@@ -273,7 +285,6 @@ public class Main {
     public static void studentMenu() {
         int choice = 0;
         do {
-            System.out.println();
             System.out.println("╔═══════════════════════════════════════════════════════════════╗");
             System.out.println("║                   STUDENT MANAGEMENT                          ║");
             System.out.println("╠═══════════════════════════════════════════════════════════════╣");
@@ -383,7 +394,6 @@ public class Main {
     public static void courseMenu() {
         int choice = 0;
         do {
-            System.out.println();
             System.out.println("╔═══════════════════════════════════════════════════════════════╗");
             System.out.println("║                    COURSE MANAGEMENT                          ║");
             System.out.println("╠═══════════════════════════════════════════════════════════════╣");
@@ -519,7 +529,6 @@ public class Main {
     public static void teacherMenu() {
         int choice = 0;
         do {
-            System.out.println();
             System.out.println("╔═══════════════════════════════════════════════════════════════╗");
             System.out.println("║                   TEACHER MANAGEMENT                          ║");
             System.out.println("╠═══════════════════════════════════════════════════════════════╣");
@@ -634,7 +643,6 @@ public class Main {
     public static void gradeMenu() {
         int choice = 0;
         do {
-            System.out.println();
             System.out.println("╔═══════════════════════════════════════════════════════════════╗");
             System.out.println("║                     GRADE MANAGEMENT                          ║");
             System.out.println("╠═══════════════════════════════════════════════════════════════╣");
@@ -763,7 +771,6 @@ public class Main {
     public static void attendanceMenu() {
         int choice = 0;
         do {
-            System.out.println();
             System.out.println("╔═══════════════════════════════════════════════════════════════╗");
             System.out.println("║                  ATTENDANCE MANAGEMENT                        ║");
             System.out.println("╠═══════════════════════════════════════════════════════════════╣");

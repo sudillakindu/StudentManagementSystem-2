@@ -26,7 +26,8 @@
 ║  3. Teacher Management                                        ║
 ║  4. Grade Management                                          ║
 ║  5. Attendance Management                                     ║
-║  6. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -111,7 +112,8 @@
 ║  3. Teacher Management                                        ║
 ║  4. Grade Management                                          ║
 ║  5. Attendance Management                                     ║
-║  6. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -173,7 +175,8 @@
 ║  3. Teacher Management                                        ║
 ║  4. Grade Management                                          ║
 ║  5. Attendance Management                                     ║
-║  6. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -256,7 +259,8 @@
 ║  3. Teacher Management                                        ║
 ║  4. Grade Management                                          ║
 ║  5. Attendance Management                                     ║
-║  6. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -293,7 +297,8 @@
 ║  3. Teacher Management                                        ║
 ║  4. Grade Management                                          ║
 ║  5. Attendance Management                                     ║
-║  6. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -355,7 +360,8 @@
 ║  3. Teacher Management                                        ║
 ║  4. Grade Management                                          ║
 ║  5. Attendance Management                                     ║
-║  6. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -438,11 +444,12 @@
 ║  3. Teacher Management                                        ║
 ║  4. Grade Management                                          ║
 ║  5. Attendance Management                                     ║
-║  6. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
->>> Enter your choice: 6
+>>> Enter your choice: 7
 
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
@@ -480,7 +487,8 @@ STUDENT LOGIN EXAMPLE
 ║  1. View My Grades                                            ║
 ║  2. View My Attendance                                        ║
 ║  3. View My Courses                                           ║
-║  4. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -502,7 +510,8 @@ STUDENT LOGIN EXAMPLE
 ║  1. View My Grades                                            ║
 ║  2. View My Attendance                                        ║
 ║  3. View My Courses                                           ║
-║  4. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -523,7 +532,8 @@ STUDENT LOGIN EXAMPLE
 ║  1. View My Grades                                            ║
 ║  2. View My Attendance                                        ║
 ║  3. View My Courses                                           ║
-║  4. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
@@ -544,11 +554,12 @@ STUDENT LOGIN EXAMPLE
 ║  1. View My Grades                                            ║
 ║  2. View My Attendance                                        ║
 ║  3. View My Courses                                           ║
-║  4. Exit                                                      ║
+║  6. Back to Login                                             ║
+║  7. Exit                                                      ║
 ║                                                               ║
 ╚═══════════════════════════════════════════════════════════════╝
 
->>> Enter your choice: 4
+>>> Enter your choice: 7
 
 ╔═══════════════════════════════════════════════════════════════╗
 ║                                                               ║
@@ -559,7 +570,7 @@ STUDENT LOGIN EXAMPLE
 
 
 ==========================================
-LOGIN FAILED EXAMPLE
+LOGIN FAILED EXAMPLE (WITH RETRY)
 ==========================================
 
 ╔═══════════════════════════════════════════════════════════════╗
@@ -569,9 +580,16 @@ LOGIN FAILED EXAMPLE
   Email    : wrong@email.com
   Password : wrongpass
 
-✗ ERROR: Invalid email or password!
+✗ ERROR: Invalid email or password! Please try again.
 
-✗ ERROR: Login failed! Exiting system.
+╔═══════════════════════════════════════════════════════════════╗
+║                        LOGIN PAGE                             ║
+╚═══════════════════════════════════════════════════════════════╝
+
+  Email    : teacher@school.com
+  Password : teacher123
+
+✓ Login successful! Welcome Teacher.
 
 
 ==========================================
