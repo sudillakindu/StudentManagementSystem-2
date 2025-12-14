@@ -30,23 +30,6 @@ public class Attendance {
         return status;
     }
     
-    // Setter methods (Encapsulation)
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-    
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-    
-    public void setDate(String date) {
-        this.date = date;
-    }
-    
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
     // View attendance by course
     public static void viewAttendanceByCourse(Attendance[] attendances, int count, Course course) {
         System.out.println();

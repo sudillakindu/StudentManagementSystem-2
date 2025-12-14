@@ -15,19 +15,6 @@ public class Teacher extends User {
         return teacherId;
     }
     
-    public String getSubject() {
-        return subject;
-    }
-    
-    // Setter methods (Encapsulation)
-    public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
-    }
-    
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-    
     // Override display method
     public void displayDetails() {
         System.out.println();

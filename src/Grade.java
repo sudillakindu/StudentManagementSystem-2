@@ -24,19 +24,6 @@ public class Grade {
         return grade;
     }
     
-    // Setter methods (Encapsulation)
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-    
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-    
-    public void setGrade(double grade) {
-        this.grade = grade;
-    }
-    
     // Calculate average grade
     public static double calculateAverage(Grade[] grades, int count, Student student) {
         double sum = 0;

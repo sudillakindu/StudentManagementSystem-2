@@ -27,15 +27,6 @@ public class Course {
         return teacher;
     }
     
-    // Setter methods (Encapsulation)
-    public void setCourseId(String courseId) {
-        this.courseId = courseId;
-    }
-    
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-    
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }

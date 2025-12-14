@@ -19,11 +19,6 @@ public class Student extends User {
         return email;
     }
     
-    // Setter methods (Encapsulation)
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
-    
     public void setEmail(String email) {
         this.email = email;
     }
